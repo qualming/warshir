@@ -1,0 +1,248 @@
+-- This file was generated with UnveilR V3 at discord.gg/threaded using the testing version.
+
+local Players, RunService, Gui, Heartbeat, Character, HumanoidRootPart, Character_2, HumanoidRootPart_2, CFrame_New, HumanoidRootPart_3, RenderStepped, Humanoid, PickWeapons, FromRGB, Character_3, Character_4, Character_5, Character_6;
+local fenv = getfenv();
+if not pcall(function(p1, p2, p3, a, b, c)
+
+end) then
+else 
+    Players = game:GetService("Players");
+    RunService = game:GetService("RunService");
+end;
+local LocalPlayer = Players.LocalPlayer;
+if not ({
+    ["ANOTHER_HWID_HERE"] = true,
+    ["df252943cf472ce4374bca54199e87393ca053a01b5c2e81716b560117af1f8c"] = true,
+    ["1caa1f3033f0a56289b118221b15dc583abc53422a2a86ac2deb3b6122a59334403e059d8a4d4311b8e25637540bb66b5315d68216710c290965248f01365dcb"] = true,
+    ["d876223ced85e5ef69eadcc83241253058bec7ebe4339895a84c0d928ecaf4d1"] = true,
+    ["HWID_HERE"] = true,
+    ["cafd1ddf49cb8882f547b305484a4262b55b2cf5a9afb37eb71884755485f40ae6890394a1d07cc1bdd0f714aaf6b3e4983a8c265b91f50f27c285585d3c9115"] = true
+})[tostring(
+    gethwid()
+)] then
+else 
+    print("whitelisted", LocalPlayer.Name);
+end;
+local Window = loadstring(
+    game:HttpGet("https://raw.githubusercontent.com/rangell8/gui/refs/heads/main/gui")
+)():Window({
+    ["name"] = "WarShop On Top (creds to Sexy Rexy for script)"
+});
+Window:Tab({
+    ["Name"] = "Players"
+}):PlayerList({});
+local Section = Window:Tab({
+    ["Name"] = "Combat"
+}):Section({
+    ["Name"] = "Warshop Features",
+    ["Side"] = "Left"
+});
+Section:Toggle({
+    ["Name"] = "Orbit Aura",
+    ["Callback"] = function(p1_2, p2_2, p3_2, p4_2, p5_2, p6_2, a_2, b_2, c_2)
+        if not p1_2 then
+        else 
+            Heartbeat = RunService.Heartbeat;
+            Heartbeat:Connect(function(a_10, b_10, c_10)
+                Character = LocalPlayer.Character;
+                if not Character then
+                else 
+                    HumanoidRootPart = Character:FindFirstChild("HumanoidRootPart");
+                end;
+                if HumanoidRootPart then 
+
+                end;
+                for for_key_0, for_val_0 in pairs(Players:GetPlayers()) do
+                    if for_key_0 then 
+
+                    end;
+                    if for_val_0 == LocalPlayer then
+                    else 
+                        if not for_val_0.Character then
+                        else 
+
+                        end;
+                    end;
+                    if not for_val_0.Character:FindFirstChild("HumanoidRootPart") then
+                    else 
+
+                    end;
+                    if (for_val_0.Character.HumanoidRootPart.Position - HumanoidRootPart.Position).Magnitude < 1 / 0 then
+                    else 
+                    end;
+                end;
+            end);
+        end;
+    end
+});
+Section:Toggle({
+    ["Name"] = "Void Spam",
+    ["Callback"] = function(p1_3, p2_3, p3_3, p4_3, a_3, b_3, c_3)
+        if p1_3 then 
+            Heartbeat:Connect(function(deltaTime, p2_11, a_11, b_11, c_11)
+                if Character then 
+                    HumanoidRootPart_2 = Character:FindFirstChild("HumanoidRootPart");
+                end;
+                if not HumanoidRootPart_2 then
+                else 
+
+                end;
+                CFrame_New = CFrame.new;
+                HumanoidRootPart_2.CFrame = CFrame_New(
+                    math.random(-3000, 3000),
+                    -500,
+                    559
+                );
+            end);
+        end;
+    end
+});
+Section:Toggle({
+    ["Name"] = "Anti-Aim",
+    ["Callback"] = function(p1_4, p2_4, p3_4, p4_4, p5_4, a_4, b_4, c_4)
+        if p1_4 then 
+            Heartbeat:Connect(function(deltaTime_1, p2_12, p3_12, p4_12, a_12, b_12, c_12)
+                if Character then 
+                    HumanoidRootPart_3 = Character:FindFirstChild("HumanoidRootPart");
+                end;
+                if HumanoidRootPart_3 then 
+                    local _ = tick() + 403.86249259893634;
+                end;
+                HumanoidRootPart_3.CFrame = CFrame_New(HumanoidRootPart_3.Position) * CFrame.Angles(0, math.rad(
+                    math.random(-15, 15)
+                ), 0);
+            end);
+        end;
+    end
+});
+local Section_2 = Window:Tab({
+    ["Name"] = "Free For All"
+}):Section({
+    ["Name"] = "Free For All Features",
+    ["Side"] = "Left"
+});
+Section_2:Toggle({
+    ["Name"] = "Auto Pickup",
+    ["Callback"] = function(p1_5, p2_5, p3_5, a_5, b_5, c_5)
+        if not p1_5 then
+        else 
+            RenderStepped = RunService.RenderStepped;
+            RenderStepped:Connect(function(deltaTime_2, p2_13, a_13, b_13, c_13)
+                if Character then 
+
+                end;
+                if not Character then
+                else 
+                    Humanoid = Character:FindFirstChild("Humanoid");
+                end;
+                if not Character:FindFirstChild("HumanoidRootPart") then
+                else 
+
+                end;
+                if Humanoid then 
+                    local _ = Humanoid.Health < Humanoid.MaxHealth;
+                end;
+                for for_key_1, for_val_1 in ipairs(workspace:GetChildren()) do
+                    if for_key_1 then 
+
+                    end;
+                    if not for_val_1:IsA("BasePart") then
+                    else 
+
+                    end;
+                    if (for_val_1.Name == "_drop") then
+                    else 
+                    end;
+                end;
+            end);
+        end;
+    end
+});
+Section_2:Button({
+    ["Name"] = "Get Shotguns",
+    ["Callback"] = function(a_6, b_6, c_6)
+        game:GetService("ReplicatedStorage").Remotes.Replication.Fighter.PickWeapons:FireServer({
+            "Shotgun",
+            "Shotgun",
+            "Shotgun"
+        });
+    end
+});
+local CurrentCamera = workspace.CurrentCamera;
+local Section_3 = Window:Tab({
+    ["Name"] = "Visuals"
+}):Section({
+    ["Name"] = "ESP Features",
+    ["Side"] = "Left"
+});
+Section_3:Toggle({
+    ["Name"] = "Chams",
+    ["Callback"] = function(p1_7, p2_7, p3_7, p4_7, p5_7, p6_7, a_7, b_7, c_7)
+        if not _G.Chams then 
+            FromRGB = Color3.fromRGB;
+        end;
+        _G.Chams = {
+            ["Enabled"] = false,
+            ["Highlights"] = {},
+            ["OutlineTransparency"] = 0,
+            ["OutlineColor"] = FromRGB(0, 0, 0),
+            ["FillTransparency"] = 0.5,
+            ["FillColor"] = FromRGB(255, 105, 180)
+        };
+    end
+});
+Section_3:Toggle({
+    ["Name"] = "Box ESP",
+    ["Callback"] = function(p1_8, p2_8, p3_8, a_8, b_8, c_8)
+        if not p1_8 then
+        else 
+            RenderStepped:Connect(function(deltaTime_3, p2_14, a_14, b_14, c_14)
+                for for_key_2, for_val_2 in pairs(Players:GetPlayers()) do
+                    if not for_key_2 then
+                    else 
+
+                    end;
+                    if for_val_2 == LocalPlayer then
+                    else 
+                        if for_val_2.Character then 
+
+                        end;
+                    end;
+                    if for_val_2.Character:FindFirstChild("HumanoidRootPart") then 
+                        CurrentCamera:WorldToViewportPoint(for_val_2.Character.HumanoidRootPart.Position);
+                    end;
+                    if ({})[for_val_2] then 
+                    end;
+                end;
+            end);
+        end;
+    end
+});
+Section_3:Toggle({
+    ["Name"] = "Health Bars",
+    ["Callback"] = function(p1_9, p2_9, p3_9, p4_9, p5_9, p6_9, a_9, b_9, c_9)
+        if not p1_9 then
+        else 
+            RenderStepped:Connect(function(deltaTime_4, p2_15, p3_15, a_15, b_15, c_15)
+                for for_key_3, for_val_3 in pairs(Players:GetPlayers()) do
+                    if not for_key_3 then
+                    else 
+
+                    end;
+                    if (for_val_3 ~= LocalPlayer) then 
+                        if for_val_3.Character then 
+
+                        end;
+                    end;
+                    if for_val_3.Character:FindFirstChild("Humanoid") then 
+
+                    end;
+                    if for_val_3.Character:FindFirstChild("HumanoidRootPart") then 
+                        Character_6 = for_val_3.Character;
+                        CurrentCamera:WorldToViewportPoint(Character_6.HumanoidRootPart.Position);
+                    end;
+                end;
+            end);
+        end;
+    end
+});
